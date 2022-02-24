@@ -2,6 +2,8 @@ package com.kazantsev.data.database.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.kazantsev.domain.model.Difficult
+import com.kazantsev.domain.model.Puzzle
 
 @Entity(tableName = "Puzzle")
 data class PuzzleEntity(
@@ -14,4 +16,16 @@ data class PuzzleEntity(
     val solved: Boolean,
     val favorite: Boolean,
     val link: String,
-)
+) {
+    fun toDomain() = Puzzle(
+        id=id,
+        categoryID=categoryID,
+        name=name,
+        question=question,
+        answer=answer,
+        difficult= Difficult.valueOf(difficult),
+        solved=solved,
+        favorite=favorite,
+        link=link,
+    )
+}

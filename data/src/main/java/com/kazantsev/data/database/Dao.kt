@@ -15,7 +15,7 @@ interface AppDao {
     fun getPuzzleByCategory(idCategory: Int): Flow<List<PuzzleEntity>>
 
     @Query("SELECT * FROM Puzzle WHERE id=:id")
-    fun getPuzzleId(id: Int): Flow<PuzzleEntity>
+    fun getPuzzleById(id: Int): Flow<PuzzleEntity>
 
     @Query("UPDATE Puzzle SET favorite = :favorite  WHERE id=:id")
     suspend fun updateFavoriteByPuzzleId(id: Int, favorite: Boolean)
