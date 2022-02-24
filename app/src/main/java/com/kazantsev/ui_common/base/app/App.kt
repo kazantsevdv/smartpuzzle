@@ -1,4 +1,4 @@
-package com.kazantsev.base.app
+package com.kazantsev.ui_common.base.app
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

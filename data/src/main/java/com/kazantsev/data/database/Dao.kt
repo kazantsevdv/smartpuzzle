@@ -28,4 +28,7 @@ interface AppDao {
 
     @Query("UPDATE Puzzle SET favorite = 0")
     suspend fun clearFavoritePuzzle()
+
+    @Query("SELECT COUNT(id) FROM Puzzle WHERE favorite = 1")
+    fun getFavoriteCount(): Flow<Int>
 }

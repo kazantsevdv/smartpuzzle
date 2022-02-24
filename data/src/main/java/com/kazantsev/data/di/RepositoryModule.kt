@@ -18,7 +18,6 @@ object RepositoryModule {
     @Singleton
     @Provides
     fun provideRepository(
-        api: ApiDataSource,
-        db: AppDatabase,
-    ): Repository = RepositoryImpl(api,db)
+             db: AppDatabase,
+    ): Repository = RepositoryImpl(db)
 }

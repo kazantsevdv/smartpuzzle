@@ -32,8 +32,8 @@ class BlankFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.blankUseCase(1).collect {
-                    binding.text.text = it.first()
+                viewModel.blankUseCase().collect {
+                    binding.text.text = it.toString()
 
                 }
             }

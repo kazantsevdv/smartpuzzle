@@ -3,21 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_nav_graph"
     app:startDestination="@id/home_flow">
-
     <include app:graph="@navigation/home_flow" />
-    <include app:graph="@navigation/detail_flow" />
-
-    <action
-        android:id="@+id/action_home_flow"
-        app:destination="@id/home_flow"
-        app:popUpTo="@id/main_nav_graph" />
-
-    <action
-        android:id="@+id/action_detail_flow"
-        app:destination="@id/detail_flow">
-        <argument
-            android:name="id"
-            app:argType="integer" />
-    </action>
-
+    <include app:graph="@navigation/favorite_flow" />
 </navigation>

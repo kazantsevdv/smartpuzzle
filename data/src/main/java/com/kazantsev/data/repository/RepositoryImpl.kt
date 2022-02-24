@@ -2,6 +2,7 @@ package com.kazantsev.data.repository
 
 import com.kazantsev.data.database.AppDatabase
 import com.kazantsev.domain.repository.Repository
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
@@ -29,4 +30,6 @@ class RepositoryImpl @Inject constructor(
         db.puzzleDao.clearSolvedPuzzle()
         db.puzzleDao.clearFavoritePuzzle()
     }
+
+    override fun getFavoriteCount()=db.puzzleDao.getFavoriteCount()
 }

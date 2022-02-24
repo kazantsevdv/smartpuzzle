@@ -1,6 +1,6 @@
 package com.kazantsev.data.database.model
 
-import Category
+import com.kazantsev.domain.model.Category
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 

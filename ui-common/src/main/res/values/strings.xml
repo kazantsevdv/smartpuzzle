@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Умные головоломки для умных людей</string>
     <string name="app_name_main">Головоломки</string>
+    <string name="title_home">Задачи</string>
+    <string name="title_favorite">Избранное</string>
 
 </resources>
