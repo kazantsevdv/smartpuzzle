@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "Puzzle")
 data class PuzzleEntity(
-    @PrimaryKey val id: Int? = null,
+    @PrimaryKey val id: Int,
     val categoryID: Int,
     val name: String,
     val question: String,
