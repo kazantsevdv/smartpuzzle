@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kazantsev.domain.model.Difficult
 import com.kazantsev.domain.model.Puzzle
 import com.kazantsev.ui_common.databinding.ItemPuzzleBinding
+import com.kazantsev.ui_common.util.Util
 
 
 class PuzzleAdapter(
@@ -41,14 +42,8 @@ class PuzzleAdapter(
                     tvName.text = it.name
                     root.setBackgroundColor(if (it.solved) Color.LTGRAY else Color.TRANSPARENT)
                     tvDescription.text = question
-                    ivFavorite.setColorFilter(if (it.favorite) Color.MAGENTA else Color.GRAY)
-                    ivDifficult.setColorFilter(
-                        when (it.difficult) {
-                            Difficult.Easy -> Color.GREEN
-                            Difficult.Medium -> Color.YELLOW
-                            Difficult.Hard -> Color.RED
-                        }
-                    )
+                    ivFavorite.setColorFilter(Util.favoriteColor(it.favorite))
+                    ivDifficult.setColorFilter(Util.difficultColor(it.difficult))
                     ivFavorite.setOnClickListener {
                         onListFavoriteClickListener.onItemClick(data)
                     }

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="puzzle">Загадка</string>
+    <string name="show_answer">Показать ответ</string>
+    <string name="answer">Ответ</string>
+</resources>

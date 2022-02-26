@@ -10,6 +10,7 @@
         <entry key="ui-common/src/main/res/drawable/ic_baseline_home_24.xml" value="0.341" />
         <entry key="ui-common/src/main/res/layout/fragment_main.xml" value="0.3072916666666667" />
         <entry key="ui-common/src/main/res/layout/item_puzzle.xml" value="0.3072916666666667" />
+        <entry key="ui-detail-screen/src/main/res/layout/detail_fragment.xml" value="0.35502958579881655" />
         <entry key="ui-favorite-screen/src/main/res/layout/favorite_fragment.xml" value="0.3072916666666667" />
         <entry key="ui-puzzle-screen/src/main/res/layout/item_puzzle.xml" value="0.75" />
         <entry key="ui-puzzle-screen/src/main/res/layout/puzzle_fragment.xml" value="0.3990036231884058" />
