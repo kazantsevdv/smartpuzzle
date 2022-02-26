@@ -1,6 +1,7 @@
 package com.kazantsev.domain.repository
 
 import com.kazantsev.domain.model.Category
+import com.kazantsev.domain.model.CategoryWithTotal
 import com.kazantsev.domain.model.Puzzle
 import kotlinx.coroutines.flow.Flow
 
@@ -12,4 +13,6 @@ interface Repository {
     suspend fun updateSolvedByPuzzleId(id: Int)
     suspend fun clearSolvedAndFavoritePuzzle()
     fun getFavoriteCount(): Flow<Int>
+    fun getCategoryWithTotal(idCategory: Int? = null):Flow<List<CategoryWithTotal>>
+    fun getFavoritePuzzleList(): Flow<List<Puzzle>>
 }

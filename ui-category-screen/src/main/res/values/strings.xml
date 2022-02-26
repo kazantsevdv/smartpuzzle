@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="total_format">Решено %1$d из %2$d</string>
+    <string name="category">Категории</string>
+    <string name="Category">Категории</string>
+</resources>

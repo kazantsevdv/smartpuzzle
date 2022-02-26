@@ -3,5 +3,7 @@
     <string name="app_name_main">Головоломки</string>
     <string name="title_home">Задачи</string>
     <string name="title_favorite">Избранное</string>
+    <string name="puzzle">Загадки</string>
+    <string name="back">Back</string>
 
 </resources>

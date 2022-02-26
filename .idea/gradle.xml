@@ -7,7 +7,6 @@
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="jbr-11" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -16,9 +15,11 @@
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/navigation" />
+            <option value="$PROJECT_DIR$/ui-category-screen" />
             <option value="$PROJECT_DIR$/ui-common" />
             <option value="$PROJECT_DIR$/ui-detail-screen" />
-            <option value="$PROJECT_DIR$/ui-home-screen" />
+            <option value="$PROJECT_DIR$/ui-favorite-screen" />
+            <option value="$PROJECT_DIR$/ui-puzzle-screen" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

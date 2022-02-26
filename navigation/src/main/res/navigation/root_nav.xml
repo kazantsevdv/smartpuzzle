@@ -11,7 +11,7 @@
         app:destination="@id/detail_flow"
         app:launchSingleTop="true">
         <argument
-            android:name="url"
-            app:argType="string" />
+            android:name="id"
+            app:argType="integer" />
     </action>
 </navigation>

@@ -1,9 +1,6 @@
 package com.kazantsev.data.di
 
-import android.app.Application
-import androidx.room.RoomDatabase
 import com.kazantsev.data.database.AppDatabase
-import com.kazantsev.data.network.api.ApiDataSource
 import com.kazantsev.data.repository.RepositoryImpl
 import com.kazantsev.domain.repository.Repository
 import dagger.Module
@@ -18,6 +15,6 @@ object RepositoryModule {
     @Singleton
     @Provides
     fun provideRepository(
-             db: AppDatabase,
+        db: AppDatabase,
     ): Repository = RepositoryImpl(db)
 }

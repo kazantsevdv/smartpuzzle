@@ -10,8 +10,10 @@ dependencyResolutionManagement {
 rootProject.name = "smartpuzzle"
 include(":app")
 include(":data")
-include(":ui-home-screen")
+include(":ui-category-screen")
 include(":domain")
 include(":navigation")
 include(":ui-detail-screen")
 include(":ui-common")
+include(":ui-puzzle-screen")
+include(":ui-favorite-screen")

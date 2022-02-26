@@ -17,10 +17,10 @@ import kotlinx.coroutines.launch
 class TabFragment : Fragment(R.layout.fragment_main) {
 
     private val viewModel: TabViewModel by viewModels()
-    lateinit var bottomNavigationView: BottomNavigationView
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bottomNavigationView = view.findViewById(R.id.bottom_navigation)
+       val  bottomNavigationView = view.findViewById<BottomNavigationView>(R.id.bottom_navigation)
         val navHost =
             childFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHost.navController

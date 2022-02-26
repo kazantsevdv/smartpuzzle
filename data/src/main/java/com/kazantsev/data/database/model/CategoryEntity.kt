@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 data class CategoryEntity(
     @PrimaryKey val id: Int,
     val name: String,
-    val description: Long,
+    val description: String,
 ) {
    internal fun toDomain() = Category(
         id = id,
