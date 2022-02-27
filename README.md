@@ -1,4 +1,5 @@
-# smartpuzzle
+# smartpuzzle 
+Сборник задач на разные тематики
 ## Technologies
 - Kotlin
 - Kotlin Coroutines
