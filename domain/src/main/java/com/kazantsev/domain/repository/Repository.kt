@@ -11,7 +11,7 @@ interface Repository {
     fun getPuzzleById(id: Int): Flow<Puzzle>
     suspend fun updateFavoriteByPuzzleId(id: Int, isFavorite: Boolean)
     suspend fun updateSolvedByPuzzleId(id: Int)
-    suspend fun clearSolvedAndFavoritePuzzle()
+    suspend fun clearSolvedPuzzle()
     fun getFavoriteCount(): Flow<Int>
     fun getCategoryWithTotal(idCategory: Int? = null):Flow<List<CategoryWithTotal>>
     fun getFavoritePuzzleList(): Flow<List<Puzzle>>

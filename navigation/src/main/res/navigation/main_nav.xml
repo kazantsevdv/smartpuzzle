@@ -6,6 +6,5 @@
 
     <include app:graph="@navigation/puzzle" />
     <include app:graph="@navigation/favorite_flow" />
-
-
+    <include app:graph="@navigation/settings_flow" />
 </navigation>

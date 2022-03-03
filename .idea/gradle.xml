@@ -20,6 +20,7 @@
             <option value="$PROJECT_DIR$/ui-detail-screen" />
             <option value="$PROJECT_DIR$/ui-favorite-screen" />
             <option value="$PROJECT_DIR$/ui-puzzle-screen" />
+            <option value="$PROJECT_DIR$/ui-settings-screen" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

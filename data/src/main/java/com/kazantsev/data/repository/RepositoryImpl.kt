@@ -1,9 +1,7 @@
 package com.kazantsev.data.repository
 
 import com.kazantsev.data.database.AppDatabase
-import com.kazantsev.data.preference.DataStoreManagerImpl
 import com.kazantsev.domain.repository.Repository
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
@@ -30,10 +28,7 @@ class RepositoryImpl @Inject constructor(
     override suspend fun updateSolvedByPuzzleId(id: Int) =
         db.puzzleDao.updateSolvedByPuzzleId(id, true)
 
-    override suspend fun clearSolvedAndFavoritePuzzle() {
-        db.puzzleDao.clearSolvedPuzzle()
-        db.puzzleDao.clearFavoritePuzzle()
-    }
+    override suspend fun clearSolvedPuzzle() = db.puzzleDao.clearSolvedPuzzle()
 
     override fun getFavoriteCount() = db.puzzleDao.getFavoriteCount()
 

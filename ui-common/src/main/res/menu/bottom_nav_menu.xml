@@ -9,4 +9,8 @@
         android:id="@id/favorite_flow"
         android:icon="@drawable/ic_baseline_favorite_24"
         android:title="@string/title_favorite" />
+    <item
+        android:id="@id/settings_flow"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="@string/settings" />
 </menu>

@@ -59,6 +59,7 @@ dependencies {
     implementation(project(":ui-puzzle-screen"))
     implementation(project(":ui-detail-screen"))
     implementation(project(":ui-favorite-screen"))
+    implementation(project(":ui-settings-screen"))
     implementation(project(":ui-common"))
     implementation(Libs.Core.coreKtx)
     implementation(Libs.Core.appCompat)

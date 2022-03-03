@@ -92,12 +92,12 @@ class PuzzleFragment : BaseFragment<PuzzleFragmentBinding>() {
 
     private fun openDialogSort() {
         val binding = FilterDialogBinding.inflate(LayoutInflater.from(context))
+        val bottomSheetDialog = BottomSheetDialog(requireContext())
+        bottomSheetDialog.setContentView(binding.root)
         binding.all.isSelected = difficult == Difficult.All
         binding.easy.isSelected = difficult == Difficult.Easy
         binding.medium.isSelected = difficult == Difficult.Medium
         binding.hard.isSelected = difficult == Difficult.Hard
-        val bottomSheetDialog = BottomSheetDialog(requireContext())
-        bottomSheetDialog.setContentView(binding.root)
         when (difficult) {
             Difficult.Easy -> binding.easy.isChecked = true
             Difficult.Medium -> binding.medium.isChecked = true
