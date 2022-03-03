@@ -54,6 +54,11 @@ object Libs {
         const val rxJava = "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
         const val rxAndroid = "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
     }
+    object Datastore {
+        const val preferences_core = "androidx.datastore:datastore-preferences-core:1.0.0"
+        const val preferences = "androidx.datastore:datastore-preferences:1.0.0"
+
+    }
 
     object Network {
         private const val kotlinxSerializationVersion = "1.1.0"

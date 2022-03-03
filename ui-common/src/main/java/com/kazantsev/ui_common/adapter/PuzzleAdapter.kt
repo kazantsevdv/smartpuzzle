@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.kazantsev.domain.model.Difficult
 import com.kazantsev.domain.model.Puzzle
 import com.kazantsev.ui_common.databinding.ItemPuzzleBinding
 import com.kazantsev.ui_common.util.Util
@@ -33,15 +32,12 @@ class PuzzleAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: Puzzle?) {
 
-            val question = questionFormat(data)
-
             data?.let {
                 with(binding) {
-
                     root.setOnClickListener { onListItemClickListener.onItemClick(data) }
                     tvName.text = it.name
                     root.setBackgroundColor(if (it.solved) Color.LTGRAY else Color.TRANSPARENT)
-                    tvDescription.text = question
+                    tvDescription.text = questionFormatting(it.question)
                     ivFavorite.setColorFilter(Util.favoriteColor(it.favorite))
                     ivDifficult.setColorFilter(Util.difficultColor(it.difficult))
                     ivFavorite.setOnClickListener {
@@ -51,18 +47,10 @@ class PuzzleAdapter(
             }
         }
 
-        private fun questionFormat(data: Puzzle?): CharSequence {
-            val width = binding.root.context.resources.displayMetrics.widthPixels
+        private fun questionFormatting(question: String): CharSequence {
             val spannedText: Spanned =
-                Html.fromHtml(data?.question?.replace(Regex("<img.*?src=\"(.*?)\"[^>]+>"), ""))
-            val trimLenght = if (width > 900) 140 else 70
-
-            val question = if (spannedText.length > trimLenght) {
-                spannedText.toString().substring(0, trimLenght)
-            } else {
-                spannedText.trim()
-            }
-            return question
+                Html.fromHtml(question.replace(Regex("<img.*?src=\"(.*?)\"[^>]+>"), ""))
+            return spannedText.trim()
         }
     }
 }

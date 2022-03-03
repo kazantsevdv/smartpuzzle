@@ -1,4 +1,6 @@
-import com.kazantsev.buildsrc.*
+import com.kazantsev.buildsrc.AppConfig
+import com.kazantsev.buildsrc.Libs
+
 plugins {
     id("com.android.library")
     id("kotlin-android")
@@ -34,7 +36,8 @@ dependencies {
     kapt(Libs.Room.roomCompiler)
     implementation(Libs.Hilt.hilt_android)
     kapt(Libs.Hilt.hilt_compiler)
-
+    implementation(Libs.Datastore.preferences)
+    implementation(Libs.Datastore.preferences_core)
 }
 
 

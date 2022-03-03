@@ -48,7 +48,9 @@
                 android:id="@+id/tv_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="Задачи с подвохом Задачи с подвохом Задачи с подвохом Задачи с подвохом Задачи с подвохом" />
+                android:maxLines="3"
+                android:ellipsize="end"
+                tools:text="Задачи с подвохом Задачи с fg dfgd подвохом Задачи с подвохом Задачи с подвохом Задачи с подвохом" />
         </LinearLayout>
 
         <ImageView

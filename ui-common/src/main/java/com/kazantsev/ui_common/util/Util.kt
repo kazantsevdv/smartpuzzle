@@ -11,5 +11,6 @@ object Util {
         Difficult.Easy -> Color.GREEN
         Difficult.Medium -> Color.YELLOW
         Difficult.Hard -> Color.RED
-    }
+         else -> Color.WHITE
+     }
 }

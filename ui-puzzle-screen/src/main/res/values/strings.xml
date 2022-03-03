@@ -2,4 +2,10 @@
 <resources>
     <string name="total_format">Решено %1$d из %2$d</string>
     <string name="puzzles">Задачи</string>
+    <string name="show_filter">Выбрать сложность</string>
+    <string name="all">Все</string>
+    <string name="easy">Легкие</string>
+    <string name="medium">Средние</string>
+    <string name="hard">Сложные</string>
+    <string name="filter">Filter</string>
 </resources>
