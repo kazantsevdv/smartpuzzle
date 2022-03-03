@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -26,7 +27,7 @@ class FavoriteFragment : BaseFragment<FavoriteFragmentBinding>() {
 
 
     private val adapter by lazy(LazyThreadSafetyMode.NONE) {
-        PuzzleAdapter(onListItemClickListener,onItemFavoriteClickListener)
+        PuzzleAdapter(onListItemClickListener, onItemFavoriteClickListener)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,6 +39,9 @@ class FavoriteFragment : BaseFragment<FavoriteFragmentBinding>() {
 
                 launch {
                     viewModel.loadPuzzleFavoriteList().collect {
+                      binding.emptyImage.isVisible=it.isEmpty()
+                        binding.emptyMessage.isVisible=it.isEmpty()
+                        binding.list.isVisible=it.isNotEmpty()
                         adapter.submitList(it)
                     }
                 }
@@ -45,7 +49,6 @@ class FavoriteFragment : BaseFragment<FavoriteFragmentBinding>() {
             }
         }
     }
-
 
 
     private val onListItemClickListener: OnListItemClickListener =
@@ -61,9 +64,10 @@ class FavoriteFragment : BaseFragment<FavoriteFragmentBinding>() {
     private val onItemFavoriteClickListener: OnListItemClickListener =
         object : OnListItemClickListener {
             override fun onItemClick(puzzle: Puzzle) {
-               viewModel.setFavorite(puzzle)
+                viewModel.setFavorite(puzzle)
             }
         }
+
     override fun initBinding(
         inflater: LayoutInflater,
         container: ViewGroup?

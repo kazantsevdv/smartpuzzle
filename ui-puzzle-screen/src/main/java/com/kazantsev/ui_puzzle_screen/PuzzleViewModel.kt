@@ -17,7 +17,8 @@ class PuzzleViewModel @Inject constructor(
     private val puzzleListUseCase: PuzzleListUseCase,
     private val setFavoriteUseCase: SetFavoriteUseCase,
     private val difficultSaveUseCase: DifficultSaveUseCase,
-    val difficultFlowUseCase: DifficultFlowUseCase,
+     val preferenceFlowUseCase: PreferenceFlowUseCase,
+    private val notShowSolvedSaveUseCase: NotShowSolvedSaveUseCase,
     private val savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
     private val args = PuzzleFragmentArgs.fromSavedStateHandle(savedStateHandle)
@@ -28,12 +29,16 @@ class PuzzleViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            difficultFlowUseCase().flatMapLatest {difficult->
+            preferenceFlowUseCase().flatMapLatest { pref ->
+                val difficult = Difficult.valueOf(pref.difficult)
                 puzzleListUseCase(categoryId)
                     .map { list ->
                         list
                             .filter {
                                 if (difficult == Difficult.All) true else it.difficult == difficult
+                            }
+                            .filter {
+                                if (!pref.notShowSolved) true else !it.solved
                             }
                     }
             }.collect {
@@ -45,6 +50,11 @@ class PuzzleViewModel @Inject constructor(
     fun setFilter(difficult: Difficult) {
         viewModelScope.launch {
             difficultSaveUseCase(difficult)
+        }
+    }
+    fun setShowSolved(show: Boolean) {
+        viewModelScope.launch {
+            notShowSolvedSaveUseCase(show)
         }
     }
 

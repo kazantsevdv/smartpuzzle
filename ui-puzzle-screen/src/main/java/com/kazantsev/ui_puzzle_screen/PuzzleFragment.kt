@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.kazantsev.domain.model.Difficult
+import com.kazantsev.domain.model.Preference
 import com.kazantsev.domain.model.Puzzle
 import com.kazantsev.navigation.RootNavDirections
 import com.kazantsev.ui_common.adapter.OnListItemClickListener
@@ -32,6 +33,7 @@ class PuzzleFragment : BaseFragment<PuzzleFragmentBinding>() {
         PuzzleAdapter(onListItemClickListener, onItemFavoriteClickListener)
     }
     private var difficult: Difficult = Difficult.All
+    private var notShowSolved: Boolean = false
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
@@ -54,8 +56,9 @@ class PuzzleFragment : BaseFragment<PuzzleFragmentBinding>() {
                     }
                 }
                 launch {
-                    viewModel.difficultFlowUseCase().collect {
-                        difficult = it
+                    viewModel.preferenceFlowUseCase().collect {
+                        difficult = Difficult.valueOf(it.difficult)
+                        notShowSolved=it.notShowSolved
                         updateToolbarMenu(it)
                     }
                 }
@@ -78,12 +81,13 @@ class PuzzleFragment : BaseFragment<PuzzleFragmentBinding>() {
         }
     }
 
-    private fun updateToolbarMenu(difficult: Difficult) {
+    private fun updateToolbarMenu(pref: Preference) {
         val saveItem = binding.toolbar.menu.findItem(R.id.filter)
-        if (difficult == Difficult.All)
+        if (pref.difficult == 0 && !pref.notShowSolved)
             saveItem.setIcon(R.drawable.ic_baseline_filter_list_off_24)
         else
             saveItem.setIcon(R.drawable.ic_baseline_filter_list_24)
+
     }
 
     private fun openDialogSort() {
@@ -100,6 +104,8 @@ class PuzzleFragment : BaseFragment<PuzzleFragmentBinding>() {
             Difficult.Hard -> binding.hard.isChecked = true
             else -> binding.all.isChecked = true
         }
+        binding.notShowSolved.isChecked = notShowSolved
+        binding.notShowSolved.setOnClickListener { viewModel.setShowSolved(notShowSolved.not()) }
         binding.rgFilter.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.all -> viewModel.setFilter(Difficult.All)
