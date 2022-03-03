@@ -39,9 +39,9 @@ class FavoriteFragment : BaseFragment<FavoriteFragmentBinding>() {
 
                 launch {
                     viewModel.loadPuzzleFavoriteList().collect {
-                      binding.emptyImage.isVisible=it.isEmpty()
-                        binding.emptyMessage.isVisible=it.isEmpty()
-                        binding.list.isVisible=it.isNotEmpty()
+                        binding.emptyImage.isVisible = it.isEmpty()
+                        binding.emptyMessage.isVisible = it.isEmpty()
+                        binding.list.isVisible = it.isNotEmpty()
                         adapter.submitList(it)
                     }
                 }

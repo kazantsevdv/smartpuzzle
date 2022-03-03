@@ -9,12 +9,10 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
-import com.kazantsev.category_screen.model.CategoryUi
 import com.kazantsev.category_screen.databinding.CategoryFragmentBinding
-import com.kazantsev.navigation.MainNavGraphDirections
-import com.kazantsev.navigation.RootNavDirections
+import com.kazantsev.category_screen.model.CategoryUi
+import com.kazantsev.navigation.PuzzleDirections
 import com.kazantsev.ui_common.base.BaseFragment
-import com.kazantsev.ui_common.util.findTopNavController
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -43,9 +41,8 @@ class CategoryFragment : BaseFragment<CategoryFragmentBinding>() {
         object : OnListItemClickListener {
             override fun onItemClick(category: CategoryUi) {
                 findNavController().navigate(
-                    MainNavGraphDirections.actionPuzzleFlow(
-                        category.id
-                    )
+                    PuzzleDirections.actionPuzzleFlow(category.id)
+
                 )
             }
         }

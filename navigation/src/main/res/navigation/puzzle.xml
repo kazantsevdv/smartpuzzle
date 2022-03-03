@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/puzzle"
+    app:startDestination="@id/category_flow">
+    <include app:graph="@navigation/category_flow" />
+    <include app:graph="@navigation/puzzle_flow" />
+    <action
+        android:id="@+id/action_puzzle_flow"
+        app:destination="@id/puzzle_flow">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </action>
+</navigation>

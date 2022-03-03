@@ -5,4 +5,5 @@
     <item name="favorite_flow" type="id" />
     <item name="detail_flow" type="id" />
     <item name="tab_flow" type="id" />
+    <item name="puzzle" type="id" />
 </resources>

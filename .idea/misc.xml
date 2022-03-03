@@ -14,6 +14,7 @@
         <entry key="ui-common/src/main/res/layout/item_puzzle.xml" value="0.3072916666666667" />
         <entry key="ui-common/src/main/res/menu/bottom_nav_menu.xml" value="0.5442708333333334" />
         <entry key="ui-detail-screen/src/main/res/layout/detail_fragment.xml" value="0.35502958579881655" />
+        <entry key="ui-favorite-screen/src/main/res/drawable/empty.xml" value="0.486" />
         <entry key="ui-favorite-screen/src/main/res/layout/favorite_fragment.xml" value="0.5" />
         <entry key="ui-puzzle-screen/src/main/res/layout/filter_dialog.xml" value="0.4796195652173913" />
         <entry key="ui-puzzle-screen/src/main/res/layout/item_puzzle.xml" value="0.75" />
