@@ -18,7 +18,7 @@ class PuzzleAdapter(
 ) : ListAdapter<Puzzle, PuzzleAdapter.PuzzleViewHolder>(PuzzleDiffItemCallback) {
 
     override fun onBindViewHolder(holder: PuzzleViewHolder, position: Int) {
-        holder.bind(position)
+        holder.bind(getItem(position))
     }
 
     override fun onBindViewHolder(
@@ -29,7 +29,7 @@ class PuzzleAdapter(
         if (payloads.isNullOrEmpty())
             super.onBindViewHolder(holder, position, payloads)
         else
-            getItem(position)?.let { holder.bindFavoriteState(it.favorite) }
+            holder.bindFavoriteState(getItem(position))
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PuzzleViewHolder {
@@ -40,27 +40,28 @@ class PuzzleAdapter(
 
     inner class PuzzleViewHolder(private val binding: ItemPuzzleBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(id: Int) {
-
-            getItem(id)?.let {
-                with(binding) {
-                    root.setOnClickListener { onListItemClickListener.onItemClick(getItem(id)) }
-                    tvName.text = it.name
-                    tvName.alpha = if (it.solved) solved else notSolved
-                    tvDescription.text = questionFormatting(it.question)
-                    tvDescription.alpha = if (it.solved) solved else notSolved
-                    ivFavorite.setColorFilter(Util.favoriteColor(it.favorite))
-                    ivDifficult.setColorFilter(Util.difficultColor(it.difficult))
-                    ivFavorite.setOnClickListener {
-                        onListFavoriteClickListener.onItemClick(getItem(id))
-                    }
+        fun bind(data: Puzzle) {
+            with(binding) {
+                tvName.text = data.name
+                tvName.alpha = if (data.solved) solved else notSolved
+                tvDescription.text = questionFormatting(data.question)
+                tvDescription.alpha = if (data.solved) solved else notSolved
+                ivFavorite.setColorFilter(Util.favoriteColor(data.favorite))
+                ivDifficult.setColorFilter(Util.difficultColor(data.difficult))
+                ivFavorite.setOnClickListener {
+                    onListFavoriteClickListener.onItemClick(data)
                 }
+                root.setOnClickListener { onListItemClickListener.onItemClick(data) }
             }
+
         }
 
-        fun bindFavoriteState(isFavorite: Boolean) =
-            binding.ivFavorite.setColorFilter(Util.favoriteColor(isFavorite))
-
+        fun bindFavoriteState(data: Puzzle)  {
+            binding.ivFavorite.setColorFilter(Util.favoriteColor(data.favorite))
+            binding.ivFavorite.setOnClickListener {
+                onListFavoriteClickListener.onItemClick(data)
+            }
+        }
         private fun questionFormatting(question: String): CharSequence {
             val spannedText: Spanned =
                 Html.fromHtml(question.replace(Regex("<img.*?src=\"(.*?)\"[^>]+>"), ""))
@@ -69,6 +70,7 @@ class PuzzleAdapter(
 
 
     }
+
     companion object {
         const val solved = 0.4f
         const val notSolved = 1f
